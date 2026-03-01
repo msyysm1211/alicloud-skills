@@ -23,7 +23,7 @@ python -m pip install -U aliyun-log-python-sdk
   - `ALIBABA_CLOUD_ACCESS_KEY_SECRET`
   - `SLS_ENDPOINT` (如 `cn-hangzhou.log.aliyuncs.com`)
   - `SLS_PROJECT`
-  - `SLS_LOGSTORE`
+  - `SLS_LOGSTORE`（支持单个值，或逗号分隔多个值）
 
 ## Query 组成
 
@@ -67,7 +67,7 @@ python skills/observability/sls/alicloud-observability-sls-log-query/scripts/que
   --last-minutes 15
 ```
 
-Optional args: `--project`, `--logstore`, `--endpoint`, `--start`, `--end`, `--last-minutes`, `--limit`.
+Optional args: `--project`, `--logstore`（可重复，或逗号分隔多个值）, `--endpoint`, `--start`, `--end`, `--last-minutes`, `--limit`, `--parallel`.
 
 ## Troubleshooting script
 
@@ -78,7 +78,7 @@ python skills/observability/sls/alicloud-observability-sls-log-query/scripts/tro
   --limit 20
 ```
 
-Optional args: `--error-query`, `--group-field`, `--limit`, plus the time range args above.
+Optional args: `--error-query`, `--group-field`, `--limit`, `--logstore`（可重复，或逗号分隔多个值）, `--parallel`, plus the time range args above.
 
 ## Workflow
 
