@@ -238,6 +238,29 @@ Return key status, audit results, and remediation suggestions."
 
 - `modelstudio/` — symlink to `skills/ai/` (overseas brand)
 
+## Governance Checks
+
+Run repository governance checks locally:
+
+```bash
+bash scripts/verify_governance.sh
+```
+
+Workflow gate (prepare -> validate -> deploy):
+
+```bash
+bash scripts/workflow_prepare.sh demo-20260303
+bash scripts/workflow_validate.sh demo-20260303
+bash scripts/workflow_deploy.sh demo-20260303
+```
+
+Standards and migration notes:
+
+- `docs/standards/skill-template.md`
+- `docs/standards/skill-template-migration.md`
+- `docs/standards/coverage-policy.md`
+- `docs/standards/workflow-gate.md`
+
 ## Skill Index
 
 <!-- SKILL_INDEX_BEGIN -->

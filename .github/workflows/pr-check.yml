@@ -1,0 +1,33 @@
+name: PR Checks
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - 'docs/**'
+      - 'README.md'
+      - 'README.zh-CN.md'
+      - 'README.zh-TW.md'
+      - '.github/workflows/pr-check.yml'
+
+jobs:
+  governance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: apps/go.mod
+
+      - name: Governance Checks
+        run: bash scripts/verify_governance.sh

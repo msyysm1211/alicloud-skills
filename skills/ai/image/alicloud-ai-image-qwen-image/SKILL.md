@@ -7,6 +7,20 @@ Category: provider
 
 # Model Studio Qwen Image
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-ai-image-qwen-image
+python -m py_compile skills/ai/image/alicloud-ai-image-qwen-image/scripts/generate_image.py && echo "py_compile_ok" > output/alicloud-ai-image-qwen-image/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-ai-image-qwen-image/validate.txt` is generated.
+
+## Output And Evidence
+
+- Write generated image URLs, prompts, and metadata to `output/alicloud-ai-image-qwen-image/`.
+- Keep at least one sample JSON response per run.
+
 Build consistent image generation behavior for the video-agent pipeline by standardizing `image.generate` inputs/outputs and using DashScope SDK (Python) with the exact model name.
 
 ## Prerequisites
@@ -61,7 +75,7 @@ Minimal normalized request body:
 Preview workflow (download then open):
 
 ```bash
-curl -L -o output/ai-image-qwen-image/images/preview.png "<IMAGE_URL_FROM_RESPONSE>" && open output/ai-image-qwen-image/images/preview.png
+curl -L -o output/alicloud-ai-image-qwen-image/images/preview.png "<IMAGE_URL_FROM_RESPONSE>" && open output/alicloud-ai-image-qwen-image/images/preview.png
 ```
 
 Local helper script (JSON request -> image file):
@@ -69,7 +83,7 @@ Local helper script (JSON request -> image file):
 ```bash
 python skills/ai/image/alicloud-ai-image-qwen-image/scripts/generate_image.py \\
   --request '{"prompt":"a studio product photo of headphones","size":"1024*1024"}' \\
-  --output output/ai-image-qwen-image/images/headphones.png \\
+  --output output/alicloud-ai-image-qwen-image/images/headphones.png \\
   --print-response
 ```
 
@@ -147,7 +161,7 @@ def generate_image(req: dict) -> dict:
 
 ## Output location
 
-- Default output: `output/ai-image-qwen-image/images/`
+- Default output: `output/alicloud-ai-image-qwen-image/images/`
 - Override base dir with `OUTPUT_DIR`.
 
 ## Operational guidance

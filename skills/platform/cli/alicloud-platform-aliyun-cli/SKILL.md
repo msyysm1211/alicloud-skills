@@ -7,6 +7,20 @@ Category: tool
 
 # 阿里云通用 CLI（aliyun）技能
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-platform-aliyun-cli
+python skills/platform/cli/alicloud-platform-aliyun-cli/scripts/ensure_aliyun_cli.py --help > output/alicloud-platform-aliyun-cli/validate-help.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-platform-aliyun-cli/validate-help.txt` is generated.
+
+## Output And Evidence
+
+- 将 CLI 版本检查、API 调用输出与报错日志写入 `output/alicloud-platform-aliyun-cli/`。
+- 每次变更操作保留请求参数和结果摘要。
+
 ## 目标
 
 - 使用官方 `aliyun` CLI 执行阿里云 OpenAPI 操作。

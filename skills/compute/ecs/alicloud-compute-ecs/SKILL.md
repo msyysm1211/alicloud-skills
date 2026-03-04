@@ -7,6 +7,20 @@ Category: service
 
 # Elastic Compute Service (ECS)
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-compute-ecs
+python -m py_compile skills/compute/ecs/alicloud-compute-ecs/scripts/list_instances_all_regions.py && echo "py_compile_ok" > output/alicloud-compute-ecs/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-compute-ecs/validate.txt` is generated.
+
+## Output And Evidence
+
+- Save list/summarize outputs under `output/alicloud-compute-ecs/`.
+- Keep command arguments and region scope in each evidence file.
+
 Use Alibaba Cloud OpenAPI (RPC) with official SDKs or OpenAPI Explorer to manage ECS resources.
 Prefer the Python SDK for all examples and execution.
 

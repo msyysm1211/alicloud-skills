@@ -7,6 +7,20 @@ Category: provider
 
 # Model Studio Qwen ASR (Non-Realtime)
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-ai-audio-asr
+python -m py_compile skills/ai/audio/alicloud-ai-audio-asr/scripts/transcribe_audio.py && echo "py_compile_ok" > output/alicloud-ai-audio-asr/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-ai-audio-asr/validate.txt` is generated.
+
+## Output And Evidence
+
+- Store transcripts and API responses under `output/alicloud-ai-audio-asr/`.
+- Keep one command log or sample response per run.
+
 Use Qwen ASR for recorded audio transcription (non-realtime), including short audio sync calls and long audio async jobs.
 
 ## Critical model names
@@ -128,11 +142,11 @@ python skills/ai/audio/alicloud-ai-audio-asr/scripts/transcribe_audio.py \
 - For local files, use `input_audio.data` (data URI) when direct URL is unavailable.
 - Keep `language_hints` minimal to reduce recognition ambiguity.
 - For async tasks, use 5-20s polling interval with max retry guard.
-- Save normalized outputs under `output/ai-audio-asr/transcripts/`.
+- Save normalized outputs under `output/alicloud-ai-audio-asr/transcripts/`.
 
 ## Output location
 
-- Default output: `output/ai-audio-asr/transcripts/`
+- Default output: `output/alicloud-ai-audio-asr/transcripts/`
 - Override base dir with `OUTPUT_DIR`.
 
 ## References

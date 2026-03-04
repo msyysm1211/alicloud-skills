@@ -7,6 +7,19 @@ Category: tool
 
 # OSS（ossutil 2.0）命令行技能
 
+## Validation
+
+```bash
+python skills/storage/oss/alicloud-storage-oss-ossutil/scripts/check_ossutil.py --output output/alicloud-storage-oss-ossutil/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-storage-oss-ossutil/validate.txt` is generated.
+
+## Output And Evidence
+
+- 将命令输出、对象清单、同步日志保存到 `output/alicloud-storage-oss-ossutil/`。
+- 至少保留一次上传或列举结果作为证据。
+
 ## 目标
 
 - 使用 ossutil 2.0 管理 OSS：上传、下载、同步与资源管理。

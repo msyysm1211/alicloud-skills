@@ -7,6 +7,20 @@ Category: provider
 
 # Model Studio Qwen TTS
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-ai-audio-tts
+python -m py_compile skills/ai/audio/alicloud-ai-audio-tts/scripts/generate_tts.py && echo "py_compile_ok" > output/alicloud-ai-audio-tts/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-ai-audio-tts/validate.txt` is generated.
+
+## Output And Evidence
+
+- Save generated audio links, sample audio files, and request payloads to `output/alicloud-ai-audio-tts/`.
+- Keep one validation log per execution.
+
 ## Critical model names
 
 Use one of the recommended models:
@@ -81,7 +95,7 @@ print(audio_url)
 
 ## Output location
 
-- Default output: `output/ai-audio-tts/audio/`
+- Default output: `output/alicloud-ai-audio-tts/audio/`
 - Override base dir with `OUTPUT_DIR`.
 
 ## References

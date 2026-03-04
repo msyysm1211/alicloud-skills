@@ -1,0 +1,5 @@
+# Allowlist formats:
+# - path/to/SKILL.md
+# - path/to/SKILL.md#rule_name
+# - path/to/SKILL.md:line#rule_name
+skills/platform/openclaw/alicloud-platform-openclaw-setup/SKILL.md

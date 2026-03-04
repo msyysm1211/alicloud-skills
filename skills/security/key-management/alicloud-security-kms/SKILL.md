@@ -7,6 +7,20 @@ Category: service
 
 # Key Management Service
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-security-kms
+python -m py_compile skills/security/key-management/alicloud-security-kms/scripts/list_openapi_meta_apis.py && echo "py_compile_ok" > output/alicloud-security-kms/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-security-kms/validate.txt` is generated.
+
+## Output And Evidence
+
+- Save KMS API discovery outputs and operation results in `output/alicloud-security-kms/`.
+- Keep at least one request parameter example per operation type.
+
 Use Alibaba Cloud OpenAPI (RPC) with official SDKs or OpenAPI Explorer to manage resources for KeyManagementService.
 
 ## Workflow

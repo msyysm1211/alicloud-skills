@@ -7,6 +7,20 @@ Category: provider
 
 # Model Studio Wan Video
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-ai-video-wan-video
+python -m py_compile skills/ai/video/alicloud-ai-video-wan-video/scripts/generate_video.py && echo "py_compile_ok" > output/alicloud-ai-video-wan-video/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-ai-video-wan-video/validate.txt` is generated.
+
+## Output And Evidence
+
+- Save task IDs, polling responses, and final video URLs to `output/alicloud-ai-video-wan-video/`.
+- Keep one end-to-end run log for troubleshooting.
+
 Provide consistent video generation behavior for the video-agent pipeline by standardizing `video.generate` inputs/outputs and using DashScope SDK (Python) with the exact model name.
 
 ## Critical model names
@@ -123,7 +137,7 @@ video_url = final.output.get("video_url")
 
 ## Output location
 
-- Default output: `output/ai-video-wan-video/videos/`
+- Default output: `output/alicloud-ai-video-wan-video/videos/`
 - Override base dir with `OUTPUT_DIR`.
 
 ## Anti-patterns

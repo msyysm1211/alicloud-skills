@@ -1,0 +1,11 @@
+skills/ai/audio/alicloud-ai-audio-asr/SKILL.md
+skills/ai/audio/alicloud-ai-audio-tts/SKILL.md
+skills/ai/image/alicloud-ai-image-qwen-image/SKILL.md
+skills/ai/image/alicloud-ai-image-qwen-image-edit/SKILL.md
+skills/ai/video/alicloud-ai-video-wan-video/SKILL.md
+skills/ai/video/alicloud-ai-video-wan-r2v/SKILL.md
+skills/ai/multimodal/alicloud-ai-multimodal-qwen-vl/SKILL.md
+skills/compute/ecs/alicloud-compute-ecs/SKILL.md
+skills/security/key-management/alicloud-security-kms/SKILL.md
+skills/storage/oss/alicloud-storage-oss-ossutil/SKILL.md
+skills/platform/cli/alicloud-platform-aliyun-cli/SKILL.md

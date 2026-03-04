@@ -7,6 +7,20 @@ Category: provider
 
 # Model Studio Qwen VL (Image Understanding)
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-ai-multimodal-qwen-vl
+python -m py_compile skills/ai/multimodal/alicloud-ai-multimodal-qwen-vl/scripts/analyze_image.py && echo "py_compile_ok" > output/alicloud-ai-multimodal-qwen-vl/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-ai-multimodal-qwen-vl/validate.txt` is generated.
+
+## Output And Evidence
+
+- Save raw model responses and normalized extraction results to `output/alicloud-ai-multimodal-qwen-vl/`.
+- Include input image reference and prompt for traceability.
+
 Use Qwen VL models for image input + text output understanding tasks via DashScope compatible-mode API.
 
 ## Prerequisites
@@ -116,13 +130,13 @@ curl -sS https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions \
 ## Output location
 
 - If `--output` is set, JSON response is saved to that file.
-- Default output dir convention: `output/ai-multimodal-qwen-vl/`.
+- Default output dir convention: `output/alicloud-ai-multimodal-qwen-vl/`.
 
 ## Smoke test
 
 ```bash
 python tests/ai/multimodal/alicloud-ai-multimodal-qwen-vl-test/scripts/smoke_test_qwen_vl.py \
-  --image output/ai-image-qwen-image/images/vl_test_cat.png
+  --image ./tmp/vl_test_cat.png
 ```
 
 ## Error handling

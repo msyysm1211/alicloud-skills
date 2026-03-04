@@ -7,6 +7,20 @@ Category: provider
 
 # Model Studio Qwen Image Edit
 
+## Validation
+
+```bash
+mkdir -p output/alicloud-ai-image-qwen-image-edit
+python -m py_compile skills/ai/image/alicloud-ai-image-qwen-image-edit/scripts/prepare_edit_request.py && echo "py_compile_ok" > output/alicloud-ai-image-qwen-image-edit/validate.txt
+```
+
+Pass criteria: command exits 0 and `output/alicloud-ai-image-qwen-image-edit/validate.txt` is generated.
+
+## Output And Evidence
+
+- Save edit request payloads, result URLs, and model parameters under `output/alicloud-ai-image-qwen-image-edit/`.
+- Keep one sample request/response pair for reproducibility.
+
 Use Qwen Image Edit models for instruction-based image editing instead of text-to-image generation.
 
 ## Critical model names
@@ -62,7 +76,7 @@ Prepare a normalized request JSON and validate response schema:
 
 ## Output location
 
-- Default output: `output/ai-image-qwen-image-edit/images/`
+- Default output: `output/alicloud-ai-image-qwen-image-edit/images/`
 - Override base dir with `OUTPUT_DIR`.
 
 ## References
