@@ -275,7 +275,10 @@ dashscope_api_key = 你的DashScope API Key
 | data-lake/alicloud-data-lake-dlf-next | alicloud-data-lake-dlf-next | 透過 OpenAPI/SDK 管理 Alibaba Cloud Data Lake Formation (DlfNext)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/data-lake/alicloud-data-lake-dlf-next` |
 | database/analyticdb | alicloud-database-analyticdb-mysql | 透過 OpenAPI/SDK 管理 Alibaba Cloud AnalyticDB for MySQL (adb)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/database/analyticdb/alicloud-database-analyticdb-mysql` |
 | database/rds | alicloud-database-rds-supabase | 透過 OpenAPI 管理 Alibaba Cloud RDS Supabase，涵蓋實例生命週期與關鍵設定操作。 | `skills/database/rds/alicloud-database-rds-supabase` |
+| media/ice | alicloud-media-ice | 技能 `alicloud-media-ice` 的能力說明，詳見對應 SKILL.md。 | `skills/media/ice/alicloud-media-ice` |
+| media/live | alicloud-media-live | 技能 `alicloud-media-live` 的能力說明，詳見對應 SKILL.md。 | `skills/media/live/alicloud-media-live` |
 | media/video | alicloud-media-video-translation | 透過 OpenAPI 建立與管理 Alibaba Cloud IMS 影片翻譯任務，支援字幕、語音與人臉相關設定。 | `skills/media/video/alicloud-media-video-translation` |
+| media/vod | alicloud-media-vod | 技能 `alicloud-media-vod` 的能力說明，詳見對應 SKILL.md。 | `skills/media/vod/alicloud-media-vod` |
 | network/dns | alicloud-network-dns-cli | Alibaba Cloud DNS（Alidns）CLI 技能，支援查詢、新增與更新 DNS 記錄。 | `skills/network/dns/alicloud-network-dns-cli` |
 | network/esa | alicloud-network-esa | 技能 `alicloud-network-esa` 的能力說明，詳見對應 SKILL.md。 | `skills/network/esa/alicloud-network-esa` |
 | observability/sls | alicloud-observability-sls-log-query | 技能 `alicloud-observability-sls-log-query` 的能力說明，詳見對應 SKILL.md。 | `skills/observability/sls/alicloud-observability-sls-log-query` |
