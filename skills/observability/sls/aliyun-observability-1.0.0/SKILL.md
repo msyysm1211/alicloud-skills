@@ -138,8 +138,12 @@ if [ ! -f /etc/ilogtail/user_defined_id ]; then
   sudo touch /etc/ilogtail/user_defined_id
 fi
 RAND8="$(LC_ALL=C tr -dc 'a-z0-9' </dev/urandom | head -c 8)"
-USER_DEFINED_ID="${PROJECT}_${RAND8}"
-if ! sudo grep -Fxq "${USER_DEFINED_ID}" /etc/ilogtail/user_defined_id 2>/dev/null; then
+USER_DEFINED_ID_PREFIX="${PROJECT}_openclaw_sls_collector_"
+EXISTING_USER_DEFINED_ID="$(sudo awk -v p="${USER_DEFINED_ID_PREFIX}" 'index($0,p)==1 {print; exit}' /etc/ilogtail/user_defined_id 2>/dev/null || true)"
+if [ -n "${EXISTING_USER_DEFINED_ID}" ]; then
+  USER_DEFINED_ID="${EXISTING_USER_DEFINED_ID}"
+else
+  USER_DEFINED_ID="${USER_DEFINED_ID_PREFIX}${RAND8}"
   echo "${USER_DEFINED_ID}" | sudo tee -a /etc/ilogtail/user_defined_id >/dev/null
 fi
 if [ ! -f "/etc/ilogtail/users/${ALIYUN_UID}" ]; then
