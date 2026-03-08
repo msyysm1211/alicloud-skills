@@ -108,6 +108,16 @@ fi
 export ALIBABA_CLOUD_ACCESS_KEY_ID
 export ALIBABA_CLOUD_ACCESS_KEY_SECRET
 
+is_loong_running() {
+  if sudo /etc/init.d/loongcollectord status 2>/dev/null | grep -qi "running"; then
+    return 0
+  fi
+  if sudo /etc/init.d/ilogtaild status 2>/dev/null | grep -qi "running"; then
+    return 0
+  fi
+  return 1
+}
+
 # 2) Resolve region and install LoongCollector (skip when already running)
 REGION_ID="${ALIBABA_CLOUD_REGION_ID:-}"
 if [ -z "$REGION_ID" ]; then
@@ -118,20 +128,21 @@ if [ -z "$REGION_ID" ]; then
   exit 1
 fi
 
-LOONG_RUNNING=0
-if sudo /etc/init.d/loongcollectord status 2>/dev/null | grep -qi "running"; then
-  LOONG_RUNNING=1
-fi
-if sudo /etc/init.d/ilogtaild status 2>/dev/null | grep -qi "running"; then
-  LOONG_RUNNING=1
-fi
-
-if [ "$LOONG_RUNNING" -eq 0 ]; then
+if ! is_loong_running; then
   wget "https://aliyun-observability-release-${REGION_ID}.oss-${REGION_ID}.aliyuncs.com/loongcollector/linux64/latest/loongcollector.sh" -O loongcollector.sh
   chmod +x loongcollector.sh
   ./loongcollector.sh install "${REGION_ID}"
 fi
-sudo /etc/init.d/loongcollectord status || true
+
+# Post-install verification: one of loongcollectord/ilogtaild must be running.
+if ! is_loong_running; then
+  sudo /etc/init.d/loongcollectord start >/dev/null 2>&1 || true
+  sudo /etc/init.d/ilogtaild start >/dev/null 2>&1 || true
+fi
+if ! is_loong_running; then
+  echo "LoongCollector installation check failed: neither loongcollectord nor ilogtaild is running." >&2
+  exit 1
+fi
 
 # 3) Local user-defined identifier + create machine group
 sudo mkdir -p /etc/ilogtail
@@ -148,8 +159,16 @@ else
   USER_DEFINED_ID="${USER_DEFINED_ID_PREFIX}${RAND8}"
   echo "${USER_DEFINED_ID}" | sudo tee -a /etc/ilogtail/user_defined_id >/dev/null
 fi
+if ! sudo grep -Fxq "${USER_DEFINED_ID}" /etc/ilogtail/user_defined_id 2>/dev/null; then
+  echo "Failed to persist USER_DEFINED_ID to /etc/ilogtail/user_defined_id" >&2
+  exit 1
+fi
 if [ ! -f "/etc/ilogtail/users/${ALIYUN_UID}" ]; then
   sudo touch "/etc/ilogtail/users/${ALIYUN_UID}"
+fi
+if [ ! -f "/etc/ilogtail/users/${ALIYUN_UID}" ]; then
+  echo "Failed to create UID marker file: /etc/ilogtail/users/${ALIYUN_UID}" >&2
+  exit 1
 fi
 
 if ! aliyun sls GetMachineGroup --project "$PROJECT" --machineGroup "$MACHINE_GROUP" >/dev/null 2>&1; then
@@ -164,6 +183,10 @@ EOF
   aliyun sls CreateMachineGroup \
     --project "$PROJECT" \
     --body "$(cat /tmp/openclaw-machine-group.json)"
+fi
+if ! aliyun sls GetMachineGroup --project "$PROJECT" --machineGroup "$MACHINE_GROUP" >/dev/null 2>&1; then
+  echo "Machine group was not created successfully: ${MACHINE_GROUP}" >&2
+  exit 1
 fi
 
 # 4) Create logstore (if missing) + index + multiple dashboards
