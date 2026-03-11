@@ -212,6 +212,9 @@ output/
 # Model Studio (duplicate of skills/ai/)
 modelstudio/
 
+# Skill authoring workspaces / iteration artifacts
+skills/**/*-workspace/
+
 # Go/Web/Desktop generated artifacts
 apps/desktop/frontend/dist/
 apps/build/

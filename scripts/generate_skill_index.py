@@ -202,7 +202,7 @@ def _translate_description(desc: str, name: str, lang: str) -> str:
 
 
 def _readme_lang(path: Path) -> str:
-    if path.name == "README.en.md":
+    if path.name in {"README.md", "README.en.md"}:
         return "en"
     if path.name == "README.zh-TW.md":
         return "zh-tw"
@@ -265,7 +265,7 @@ def render_table(
     existing = existing or {}
 
     for category, name, path, description in rows:
-        localized = existing.get((category, name, path))
+        localized = None if lang == "en" else existing.get((category, name, path))
         if not localized:
             localized = _translate_description(description, name, lang)
         lines.append(f"| {category} | {name} | {localized} | `{path}` |")

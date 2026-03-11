@@ -31,11 +31,20 @@ python -m pip install dashscope
 | Reference-to-video (r2v) | `skills/ai/video/alicloud-ai-video-wan-r2v/` |
 | Text-to-speech (TTS) | `skills/ai/audio/alicloud-ai-audio-tts/` |
 | Speech recognition/transcription (ASR) | `skills/ai/audio/alicloud-ai-audio-asr/` |
+| Realtime speech recognition | `skills/ai/audio/alicloud-ai-audio-asr-realtime/` |
 | Realtime TTS | `skills/ai/audio/alicloud-ai-audio-tts-realtime/` |
+| Live speech translation | `skills/ai/audio/alicloud-ai-audio-livetranslate/` |
+| CosyVoice voice clone | `skills/ai/audio/alicloud-ai-audio-cosyvoice-voice-clone/` |
+| CosyVoice voice design | `skills/ai/audio/alicloud-ai-audio-cosyvoice-voice-design/` |
 | Voice clone | `skills/ai/audio/alicloud-ai-audio-tts-voice-clone/` |
 | Voice design | `skills/ai/audio/alicloud-ai-audio-tts-voice-design/` |
+| Omni multimodal interaction | `skills/ai/multimodal/alicloud-ai-multimodal-qwen-omni/` |
+| Visual reasoning | `skills/ai/multimodal/alicloud-ai-multimodal-qvq/` |
+| Text embeddings | `skills/ai/search/alicloud-ai-search-text-embedding/` |
+| Rerank | `skills/ai/search/alicloud-ai-search-rerank/` |
 | Vector retrieval | `skills/ai/search/alicloud-ai-search-dashvector/` or `skills/ai/search/alicloud-ai-search-opensearch/` or `skills/ai/search/alicloud-ai-search-milvus/` |
 | Document understanding | `skills/ai/text/alicloud-ai-text-document-mind/` |
+| Video editing | `skills/ai/video/alicloud-ai-video-wan-edit/` |
 | Model list crawl/update | `skills/ai/misc/alicloud-ai-misc-crawl-and-skill/` |
 
 ## When Not Matched
@@ -43,11 +52,12 @@ python -m pip install dashscope
 - Clarify model capability and input/output type first.
 - If capability is missing in repo, add a new skill first.
 
-## Common Missing Capabilities in This Repo (recommended next)
+## Common Missing Capabilities In This Repo (remaining gaps)
 
-- text generation/chat (LLM) and multimodal understanding
-- text/multimodal embeddings and rerank
-- video editing (style/lip-sync/editing)
+- text generation/chat (LLM)
+- multimodal embeddings
+- OCR-specialized extraction and image translation
+- virtual try-on / digital human / advanced video personas
 
 - For multimodal/ASR download failures, prefer public URLs listed above.
 - For ASR parameter errors, use data URI in `input_audio.data`.
@@ -81,7 +91,7 @@ Notes:
 
 1. Are you working with text, image, audio, or video?
 2. Is this generation, editing/understanding, or retrieval?
-3. Do you need speech (TTS/ASR) or vector retrieval (embedding/rerank)?
+3. Do you need speech (TTS/ASR/live translate) or retrieval (embedding/rerank/vector DB)?
 4. Do you want runnable SDK scripts or just API/parameter guidance?
 
 ## References
@@ -111,4 +121,3 @@ Pass criteria: command exits 0 and `output/alicloud-ai-entry-modelstudio/validat
 2) Run one minimal read-only query first to verify connectivity and permissions.
 3) Execute the target operation with explicit parameters and bounded scope.
 4) Verify results and save output/evidence files.
-

@@ -50,6 +50,8 @@ When you need explicit "latest" routing or reproducible snapshots, use supported
 Legacy names still seen in some workloads:
 - `qwen-vl-max-latest`
 - `qwen-vl-plus-latest`
+- `qwen-vl-ocr`
+- `qwen-vl-ocr-latest`
 
 ## Normalized interface (multimodal.chat)
 

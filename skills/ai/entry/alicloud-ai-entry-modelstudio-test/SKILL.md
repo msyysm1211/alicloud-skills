@@ -1,6 +1,6 @@
 ---
 name: alicloud-ai-entry-modelstudio-test
-description: Run a minimal test matrix for the Model Studio skills that exist in this repo (image/video/TTS/ASR and newly added edit/realtime/voice variants). Use to execute one small request per skill and record results.
+description: Run a minimal test matrix for the Model Studio skills that exist in this repo, including image/video/audio, realtime speech, omni, visual reasoning, embedding, rerank, and edit variants. Use to execute one small request per skill and record results.
 version: 1.0.0
 ---
 
@@ -29,9 +29,18 @@ python -m pip install dashscope
 4) Reference-to-video (r2v) → `skills/ai/video/alicloud-ai-video-wan-r2v/`
 5) TTS → `skills/ai/audio/alicloud-ai-audio-tts/`
 6) ASR transcription (non-realtime) → `skills/ai/audio/alicloud-ai-audio-asr/`
-7) Realtime TTS → `skills/ai/audio/alicloud-ai-audio-tts-realtime/`
-8) Voice clone → `skills/ai/audio/alicloud-ai-audio-tts-voice-clone/`
-9) Voice design → `skills/ai/audio/alicloud-ai-audio-tts-voice-design/`
+7) Realtime ASR → `skills/ai/audio/alicloud-ai-audio-asr-realtime/`
+8) Realtime TTS → `skills/ai/audio/alicloud-ai-audio-tts-realtime/`
+9) Live speech translation → `skills/ai/audio/alicloud-ai-audio-livetranslate/`
+10) CosyVoice voice clone → `skills/ai/audio/alicloud-ai-audio-cosyvoice-voice-clone/`
+11) CosyVoice voice design → `skills/ai/audio/alicloud-ai-audio-cosyvoice-voice-design/`
+12) Voice clone → `skills/ai/audio/alicloud-ai-audio-tts-voice-clone/`
+13) Voice design → `skills/ai/audio/alicloud-ai-audio-tts-voice-design/`
+14) Omni multimodal → `skills/ai/multimodal/alicloud-ai-multimodal-qwen-omni/`
+15) Visual reasoning → `skills/ai/multimodal/alicloud-ai-multimodal-qvq/`
+16) Text embedding → `skills/ai/search/alicloud-ai-search-text-embedding/`
+17) Rerank → `skills/ai/search/alicloud-ai-search-rerank/`
+18) Video editing → `skills/ai/video/alicloud-ai-video-wan-edit/`
 
 If new capability tests are needed, create corresponding skill first (use `skills/ai/misc/alicloud-ai-misc-crawl-and-skill/` to refresh model list).
 
@@ -60,9 +69,18 @@ Save as `output/alicloud-ai-entry-modelstudio-test-results.md`:
 | Reference-to-video (r2v) | alicloud-ai-video-wan-r2v | <model-id> | ... | ... | pass/fail | ... |
 | TTS | alicloud-ai-audio-tts | <model-id> | ... | ... | pass/fail | ... |
 | ASR (non-realtime) | alicloud-ai-audio-asr | <model-id> | ... | ... | pass/fail | ... |
+| Realtime ASR | alicloud-ai-audio-asr-realtime | <model-id> | ... | ... | pass/fail | ... |
 | Realtime TTS | alicloud-ai-audio-tts-realtime | <model-id> | ... | ... | pass/fail | ... |
+| Live speech translation | alicloud-ai-audio-livetranslate | <model-id> | ... | ... | pass/fail | ... |
+| CosyVoice voice clone | alicloud-ai-audio-cosyvoice-voice-clone | <model-id> | ... | ... | pass/fail | ... |
+| CosyVoice voice design | alicloud-ai-audio-cosyvoice-voice-design | <model-id> | ... | ... | pass/fail | ... |
 | Voice clone | alicloud-ai-audio-tts-voice-clone | <model-id> | ... | ... | pass/fail | ... |
 | Voice design | alicloud-ai-audio-tts-voice-design | <model-id> | ... | ... | pass/fail | ... |
+| Omni multimodal | alicloud-ai-multimodal-qwen-omni | <model-id> | ... | ... | pass/fail | ... |
+| Visual reasoning | alicloud-ai-multimodal-qvq | <model-id> | ... | ... | pass/fail | ... |
+| Text embedding | alicloud-ai-search-text-embedding | <model-id> | ... | ... | pass/fail | ... |
+| Rerank | alicloud-ai-search-rerank | <model-id> | ... | ... | pass/fail | ... |
+| Video editing | alicloud-ai-video-wan-edit | <model-id> | ... | ... | pass/fail | ... |
 ```
 
 ## Failure Handling

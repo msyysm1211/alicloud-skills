@@ -41,6 +41,8 @@ Use one of these exact model strings:
 - `qwen-image`
 - `qwen-image-plus`
 - `qwen-image-max`
+- `qwen-image-2.0`
+- `qwen-image-2.0-pro`
 - `qwen-image-max-2025-12-30`
 - `qwen-image-plus-2026-01-09`
 

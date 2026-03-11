@@ -239,6 +239,10 @@ dashscope_api_key = 你的DashScope API Key
 | 分類 | 技能 | 技能描述 | 路徑 |
 | --- | --- | --- | --- |
 | ai/audio | alicloud-ai-audio-asr | 使用 Alibaba Cloud Model Studio Qwen ASR 模型進行非即時語音辨識與轉寫，支援短音訊同步辨識與長音訊非同步轉寫。 | `skills/ai/audio/alicloud-ai-audio-asr` |
+| ai/audio | alicloud-ai-audio-asr-realtime | 技能 `alicloud-ai-audio-asr-realtime` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/audio/alicloud-ai-audio-asr-realtime` |
+| ai/audio | alicloud-ai-audio-cosyvoice-voice-clone | 技能 `alicloud-ai-audio-cosyvoice-voice-clone` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/audio/alicloud-ai-audio-cosyvoice-voice-clone` |
+| ai/audio | alicloud-ai-audio-cosyvoice-voice-design | 技能 `alicloud-ai-audio-cosyvoice-voice-design` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/audio/alicloud-ai-audio-cosyvoice-voice-design` |
+| ai/audio | alicloud-ai-audio-livetranslate | 技能 `alicloud-ai-audio-livetranslate` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/audio/alicloud-ai-audio-livetranslate` |
 | ai/audio | alicloud-ai-audio-tts | 使用 Model Studio DashScope Qwen TTS 模型生成人聲語音，適用於文字轉語音與配音場景。 | `skills/ai/audio/alicloud-ai-audio-tts` |
 | ai/audio | alicloud-ai-audio-tts-realtime | 使用 Alibaba Cloud Model Studio Qwen TTS Realtime 模型進行即時語音合成。 | `skills/ai/audio/alicloud-ai-audio-tts-realtime` |
 | ai/audio | alicloud-ai-audio-tts-voice-clone | 使用 Alibaba Cloud Model Studio Qwen TTS VC 模型執行聲音克隆流程。 | `skills/ai/audio/alicloud-ai-audio-tts-voice-clone` |
@@ -251,17 +255,22 @@ dashscope_api_key = 你的DashScope API Key
 | ai/image | alicloud-ai-image-qwen-image-edit | 技能 `alicloud-ai-image-qwen-image-edit` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/image/alicloud-ai-image-qwen-image-edit` |
 | ai/image | alicloud-ai-image-zimage-turbo | 技能 `alicloud-ai-image-zimage-turbo` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/image/alicloud-ai-image-zimage-turbo` |
 | ai/misc | alicloud-ai-misc-crawl-and-skill | 刷新 Model Studio 模型抓取結果並重新產生衍生摘要與相關技能內容。 | `skills/ai/misc/alicloud-ai-misc-crawl-and-skill` |
+| ai/multimodal | alicloud-ai-multimodal-qvq | 技能 `alicloud-ai-multimodal-qvq` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/multimodal/alicloud-ai-multimodal-qvq` |
+| ai/multimodal | alicloud-ai-multimodal-qwen-omni | 技能 `alicloud-ai-multimodal-qwen-omni` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/multimodal/alicloud-ai-multimodal-qwen-omni` |
 | ai/multimodal | alicloud-ai-multimodal-qwen-vl | 技能 `alicloud-ai-multimodal-qwen-vl` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/multimodal/alicloud-ai-multimodal-qwen-vl` |
 | ai/platform | alicloud-ai-pai-aiworkspace | 透過 OpenAPI/SDK 管理 Alibaba Cloud Platform for Artificial Intelligence PAI - AIWorkspace (AIWorkSpace)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/ai/platform/alicloud-ai-pai-aiworkspace` |
 | ai/recommendation | alicloud-ai-recommend-airec | 透過 OpenAPI/SDK 管理 Alibaba Cloud AIRec (Airec)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/ai/recommendation/alicloud-ai-recommend-airec` |
 | ai/search | alicloud-ai-search-dashvector | 使用 Python SDK 建立 DashVector 向量檢索能力，支援集合建立、寫入與相似度查詢。 | `skills/ai/search/alicloud-ai-search-dashvector` |
 | ai/search | alicloud-ai-search-milvus | 使用 PyMilvus 對接 AliCloud Milvus（Serverless），用於向量寫入與相似度檢索。 | `skills/ai/search/alicloud-ai-search-milvus` |
 | ai/search | alicloud-ai-search-opensearch | 透過 Python SDK（ha3engine）使用 OpenSearch 向量檢索版，支援文件寫入與檢索。 | `skills/ai/search/alicloud-ai-search-opensearch` |
+| ai/search | alicloud-ai-search-rerank | 技能 `alicloud-ai-search-rerank` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/search/alicloud-ai-search-rerank` |
+| ai/search | alicloud-ai-search-text-embedding | 技能 `alicloud-ai-search-text-embedding` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/search/alicloud-ai-search-text-embedding` |
 | ai/service | alicloud-ai-chatbot | 透過 OpenAPI/SDK 管理 Alibaba Cloud beebot (Chatbot)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/ai/service/alicloud-ai-chatbot` |
 | ai/service | alicloud-ai-cloud-call-center | 透過 OpenAPI/SDK 管理 Alibaba Cloud Cloud Call Center (CCC)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/ai/service/alicloud-ai-cloud-call-center` |
 | ai/service | alicloud-ai-contactcenter-ai | 透過 OpenAPI/SDK 管理 Alibaba Cloud Contact Center AI (ContactCenterAI)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/ai/service/alicloud-ai-contactcenter-ai` |
 | ai/text | alicloud-ai-text-document-mind | 透過 Node.js SDK 使用 Document Mind（DocMind）執行文件解析任務並輪詢結果。 | `skills/ai/text/alicloud-ai-text-document-mind` |
 | ai/translation | alicloud-ai-translation-anytrans | 透過 OpenAPI/SDK 管理 Alibaba Cloud TongyiTranslate (AnyTrans)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/ai/translation/alicloud-ai-translation-anytrans` |
+| ai/video | alicloud-ai-video-wan-edit | 技能 `alicloud-ai-video-wan-edit` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/video/alicloud-ai-video-wan-edit` |
 | ai/video | alicloud-ai-video-wan-r2v | 技能 `alicloud-ai-video-wan-r2v` 的能力說明，詳見對應 SKILL.md。 | `skills/ai/video/alicloud-ai-video-wan-r2v` |
 | ai/video | alicloud-ai-video-wan-video | 透過 Model Studio DashScope SDK 進行影片生成，支援時長、幀率、尺寸等參數控制。 | `skills/ai/video/alicloud-ai-video-wan-video` |
 | backup/alicloud-backup-bdrc | alicloud-backup-bdrc | 透過 OpenAPI/SDK 管理 Alibaba Cloud Backup and Disaster Recovery Center (BDRC)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/backup/alicloud-backup-bdrc` |
@@ -291,6 +300,7 @@ dashscope_api_key = 你的DashScope API Key
 | platform/docs | alicloud-platform-docs-api-review | 自動評審最新 Alibaba Cloud 產品文件與 OpenAPI 文件，並輸出優先級建議與證據。 | `skills/platform/docs/alicloud-platform-docs-api-review` |
 | platform/docs | alicloud-platform-multicloud-docs-api-benchmark | 對阿里雲及主流雲廠商同類產品文件與 API 文件進行基準對比並給出改進建議。 | `skills/platform/docs/alicloud-platform-multicloud-docs-api-benchmark` |
 | platform/openapi | alicloud-platform-openapi-product-api-discovery | 發現並對齊 Alibaba Cloud 產品目錄與 OpenAPI 中繼資料，用於覆蓋分析與技能規劃。 | `skills/platform/openapi/alicloud-platform-openapi-product-api-discovery` |
+| platform/openclaw | alicloud-platform-openclaw-setup | 技能 `alicloud-platform-openclaw-setup` 的能力說明，詳見對應 SKILL.md。 | `skills/platform/openclaw/alicloud-platform-openclaw-setup` |
 | platform/skills | alicloud-skill-creator | 技能 `alicloud-skill-creator` 的能力說明，詳見對應 SKILL.md。 | `skills/platform/skills/alicloud-skill-creator` |
 | security/content | alicloud-security-content-moderation-green | 透過 OpenAPI/SDK 管理 Alibaba Cloud Content Moderation (Green)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/security/content/alicloud-security-content-moderation-green` |
 | security/firewall | alicloud-security-cloudfw | 透過 OpenAPI/SDK 管理 Alibaba Cloud Cloud Firewall (Cloudfw)，用於資源查詢、建立或更新配置、狀態查詢與故障排查。 | `skills/security/firewall/alicloud-security-cloudfw` |

@@ -30,6 +30,8 @@ Use one of these exact model strings:
 - `qwen-image-edit`
 - `qwen-image-edit-plus`
 - `qwen-image-edit-max`
+- `qwen-image-2.0`
+- `qwen-image-2.0-pro`
 - `qwen-image-edit-plus-2025-12-15`
 - `qwen-image-edit-max-2026-01-16`
 

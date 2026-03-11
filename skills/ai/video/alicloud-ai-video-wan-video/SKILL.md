@@ -27,9 +27,13 @@ Provide consistent video generation behavior for the video-agent pipeline by sta
 ## Critical model names
 
 Use one of these exact model strings:
+- `wan2.2-t2v-plus`
+- `wan2.2-t2v-flash`
 - `wan2.6-i2v-flash`
 - `wan2.6-i2v`
 - `wan2.6-i2v-us`
+- `wan2.6-t2v-us`
+- `wanx2.1-t2v-turbo`
 
 ## Prerequisites
 
@@ -51,7 +55,7 @@ python -m pip install dashscope
 - `fps` (number, required)
 - `size` (string, required) e.g. `1280*720`
 - `seed` (int, optional)
-- `reference_image` (string | bytes, required for i2v family models)
+- `reference_image` (string | bytes, optional for t2v, required for i2v family models)
 - `motion_strength` (number, optional)
 
 ### Response
@@ -63,7 +67,7 @@ python -m pip install dashscope
 ## Quick start (Python + DashScope SDK)
 
 Video generation is usually asynchronous. Expect a task ID and poll until completion.
-Note: Wan i2v models require an input image; map `reference_image` to `img_url`.
+Note: Wan i2v models require an input image; pure t2v models can omit `reference_image`.
 
 ```python
 import os
