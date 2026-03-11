@@ -1,6 +1,84 @@
-# ESA OpenAPI overview (2024-09-10) - Site Management, Configuration, DNS & Cache
+# ESA OpenAPI overview (2024-09-10) - Pages, ER, KV, Site Management, DNS & Cache
 
-API index for site management, configuration, DNS records, and cache rules. For parameter details see official docs.
+API index for Pages deployment, Edge Routine, Edge KV, site management, configuration, DNS records, and cache rules.
+All APIs via Python SDK (`alibabacloud_esa20240910`).
+
+## Pages (基于 Edge Routine)
+
+底层调用 ER API 实现，完整流程见 `references/pages.md`。
+
+### HTML 部署核心 API
+- CreateRoutine - 创建边缘函数
+- GetRoutineStagingCodeUploadInfo - 获取代码上传 OSS 签名
+- CommitRoutineStagingCode - 提交代码版本
+- PublishRoutineCodeVersion - 发布到 staging/production
+- GetRoutine - 获取访问 URL
+
+### 静态目录部署核心 API
+- CreateRoutine - 创建边缘函数
+- CreateRoutineWithAssetsCodeVersion - 创建带 assets 的代码版本
+- GetRoutineCodeVersionInfo - 查询版本构建状态
+- CreateRoutineCodeDeployment - 按比例部署到指定环境
+- GetRoutine - 获取访问 URL
+
+## Edge Routine (ER)
+
+### 函数管理
+- CreateRoutine - 创建边缘函数
+- DeleteRoutine - 删除边缘函数
+- GetRoutine - 获取边缘函数详情
+- GetRoutineUserInfo - 获取用户边缘函数信息
+- ListUserRoutines - 分页列出所有边缘函数
+
+### 代码版本
+- GetRoutineStagingCodeUploadInfo - 获取代码上传信息
+- CommitRoutineStagingCode - 提交暂存代码版本
+- PublishRoutineCodeVersion - 发布代码版本到 staging/production
+- DeleteRoutineCodeVersion - 删除代码版本
+- CreateRoutineWithAssetsCodeVersion - 创建带 assets 的代码版本 (静态目录部署使用)
+- GetRoutineCodeVersionInfo - 获取代码版本状态
+- CreateRoutineCodeDeployment - 创建代码部署 (assets 部署使用)
+- ListRoutineCodeVersions - 分页列出代码版本
+- GetRoutineCodeVersion - 查询单个代码版本详情
+- UpdateRoutineConfigDescription - 修改函数描述
+
+### 路由管理
+- CreateRoutineRoute - 创建函数路由
+- DeleteRoutineRoute - 删除函数路由
+- GetRoutineRoute - 获取路由详情
+- UpdateRoutineRoute - 修改函数路由
+- ListRoutineRoutes - 列出函数路由
+- ListSiteRoutes - 列出站点路由
+
+### 关联记录管理
+- CreateRoutineRelatedRecord - 创建函数关联记录 (域名)
+- DeleteRoutineRelatedRecord - 删除函数关联记录
+- ListRoutineRelatedRecords - 列出函数关联记录
+
+## Edge KV
+
+边缘键值存储，支持 Namespace 和 Key-Value 管理。
+
+### Namespace 管理
+- CreateKvNamespace - 创建 KV 存储空间
+- DeleteKvNamespace - 删除 KV 存储空间
+- GetKvNamespace - 查询单个 namespace 信息
+- GetKvAccount - 查询账户 KV 使用信息及所有 namespace
+- DescribeKvAccountStatus - 查询 Edge KV 是否已开通
+
+### 单键操作
+- PutKv - 写入键值对 (≤2MB)
+- PutKvWithHighCapacity - 写入大容量键值对 (≤25MB)
+- GetKv - 读取键的值
+- GetKvDetail - 读取键值及 TTL 信息
+- DeleteKv - 删除键值对
+
+### 批量操作
+- BatchPutKv - 批量写入键值对 (≤2MB)
+- BatchPutKvWithHighCapacity - 批量写入大容量 (≤100MB)
+- BatchDeleteKv - 批量删除键值对 (≤10000个)
+- BatchDeleteKvWithHighCapacity - 批量删除大容量 (≤100MB)
+- ListKvs - 列出 namespace 下所有键 (支持前缀过滤和分页)
 
 ## Site Management
 
