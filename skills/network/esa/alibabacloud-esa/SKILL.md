@@ -1,5 +1,5 @@
 ---
-name: alicloud-network-esa
+name: alibabacloud-esa
 description: Manage Alibaba Cloud ESA — deploy HTML/static sites via Pages, manage Edge Routines (ER) for serverless edge functions, use Edge KV for distributed key-value storage, and handle site management, DNS records, cache rules via OpenAPI/SDK. Use when working with ESA, edge deployment, edge functions, Pages, ER, KV storage, DNS, cache, or site configuration.
 ---
 
@@ -165,7 +165,7 @@ resp = client.get_kv(esa_models.GetKvRequest(namespace="my-ns", key="k1"))
 2) Find API group and exact operation name in `references/api_overview.md`.
 3) Call API with Python SDK (preferred) or OpenAPI Explorer.
 4) Verify results with describe/list APIs.
-5) If you need repeatable inventory or summaries, use `scripts/` and write outputs under `output/alicloud-network-esa/`.
+5) If you need repeatable inventory or summaries, use `scripts/` and write outputs under `output/alibabacloud-esa/`.
 
 ### SDK priority
 
@@ -367,7 +367,7 @@ access_key_secret = your-sk
 ## Output policy
 
 If you need to save responses or generated artifacts, write them under:
-`output/alicloud-network-esa/`
+`output/alibabacloud-esa/`
 
 ## References
 

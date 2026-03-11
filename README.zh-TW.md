@@ -291,7 +291,7 @@ dashscope_api_key = 你的DashScope API Key
 | media/vod | alicloud-media-vod | 技能 `alicloud-media-vod` 的能力說明，詳見對應 SKILL.md。 | `skills/media/vod/alicloud-media-vod` |
 | network/cdn | alicloud-network-cdn | 透過 OpenAPI/SDK 管理 Alibaba Cloud CDN，涵蓋網域生命週期、快取刷新與預熱、HTTPS 憑證更新及日誌監控查詢。 | `skills/network/cdn/alicloud-network-cdn` |
 | network/dns | alicloud-network-dns-cli | Alibaba Cloud DNS（Alidns）CLI 技能，支援查詢、新增與更新 DNS 記錄。 | `skills/network/dns/alicloud-network-dns-cli` |
-| network/esa | alicloud-network-esa | 技能 `alicloud-network-esa` 的能力說明，詳見對應 SKILL.md。 | `skills/network/esa/alicloud-network-esa` |
+| network/esa | alibabacloud-esa | 技能 `alibabacloud-esa` 的能力說明，詳見對應 SKILL.md。 | `skills/network/esa/alibabacloud-esa` |
 | network/slb | alicloud-network-alb | 管理與排障阿里雲 ALB（應用型負載均衡）。涵蓋實例、監聽、伺服器群組、轉發規則、憑證、ACL、安全策略、健康檢查及非同步任務輪詢的全生命週期管理，包含 28 個 CLI 腳本。 | `skills/network/slb/alicloud-network-alb` |
 | observability/pts | alicloud-observability-pts | 技能 `alicloud-observability-pts` 的能力說明，詳見對應 SKILL.md。 | `skills/observability/pts/alicloud-observability-pts` |
 | observability/sls | alicloud-observability-sls-log-query | 技能 `alicloud-observability-sls-log-query` 的能力說明，詳見對應 SKILL.md。 | `skills/observability/sls/alicloud-observability-sls-log-query` |
