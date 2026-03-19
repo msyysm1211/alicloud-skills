@@ -178,21 +178,21 @@ def batch_delete_kv(namespace: str, keys: list):
 
 ## Using KV in Edge Routine
 
-In Edge Routine code, access KV storage via global `KV` object:
+In Edge Routine code, you need to create an instance via `new EdgeKV({namespace: "..."})` to access KV storage (no global instance, must be explicitly created each time):
 
 ```javascript
 export default {
   async fetch(request) {
-    const ns = KV.namespace("my-namespace");
+    const kv = new EdgeKV({ namespace: "my-namespace" });
 
     // Write
-    await ns.put("key1", "value1");
+    await kv.put("key1", "value1");
 
     // Read
-    const value = await ns.get("key1");
+    const value = await kv.get("key1");
 
     // Delete
-    await ns.delete("key1");
+    await kv.delete("key1");
 
     return new Response(value || "not found");
   },
@@ -212,7 +212,7 @@ CreateKvNamespace → PutKv / BatchPutKv → ListKvs verify
 
 ```
 1. Write config via OpenAPI: PutKv(namespace="config", key="feature-flags", value=json)
-2. Edge Routine reads config: KV.namespace("config").get("feature-flags")
+2. Edge Routine reads config: new EdgeKV({namespace: "config"}).get("feature-flags")
 3. Update config by calling PutKv again, edge nodes sync automatically
 ```
 
